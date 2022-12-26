@@ -1,0 +1,7 @@
+.cardCart {
+    display: flex;
+}
+
+span {
+    align-self: center;
+}
