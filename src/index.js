@@ -1,8 +1,14 @@
+//Modulos
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+//Estilos
 import './index.css';
-import reportWebVitals from './reportWebVitals';
+//Componentes
 import App from './App';
+//Core
+import reportWebVitals from './reportWebVitals';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -2,14 +2,20 @@
 //Estilos
 import "./ItemListContainer.css";
 //Componentes
+import ItemList from "../itemList/ItemList";
 //Core
 
 const ItemListContainer = (props) => {
 
 
-    return <div>
-        <p>{props.greeting}</p>
-    </div>
+
+
+    return (
+        <div className="ItemListContainer">
+        <p>Item Container</p>
+        <ItemList/>
+        </div>
+    )
 }
 
 

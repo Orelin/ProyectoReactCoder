@@ -1,4 +1,4 @@
-//Modulos
+ //Modulos
 //Estilos
 import "./CardWidget.css";
 //Componentes
@@ -7,10 +7,12 @@ import "./CardWidget.css";
 const CardWidget = (props) => {
 
 
-    return <div className= "cardCart">
-        <span className="material-symbols-rounded">shopping_cart</span>
-        <p>{props.cantidad}</p>
-    </div>
+    return (
+        <div className= "cardCart">
+            <span className="material-symbols-rounded">shopping_cart</span>
+            <p>{props.cantidad}</p>
+        </div>
+    )
 }
 
 
