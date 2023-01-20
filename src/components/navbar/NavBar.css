@@ -59,11 +59,6 @@ body {
         display: none;
     }
 
-    /* Burger menu */
-    .menu-container .burger {
-        display: none;
-    }
-
     .menu {
         position: relative;
         width: 100%;

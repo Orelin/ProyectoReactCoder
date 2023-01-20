@@ -1,0 +1,17 @@
+.Item{
+    margin: 5rem auto;
+}
+
+.Item .MuiCard-root{
+    display: grid;
+    height: 100%;
+}
+
+.item .MuiCardMedia-root {
+    width: 50rem;
+    
+}
+.Item .MuiCardActions-root{
+    margin: 0 auto;
+    align-items: end;
+}
