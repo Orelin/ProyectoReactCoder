@@ -16,7 +16,7 @@ const ItemList = () => {
     useEffect(() => {
         
         if(categoriaId!=null) {
-        fetch(`'https://fakestoreapi.com/products/category/${categoriaId}`)
+        fetch(`https://fakestoreapi.com/products/category/${categoriaId}`)
         .then(res=>res.json())
         .then(json=> setRenderizar( json.map( product => <Item key={product.id} id= {"idprod" + product.id} data={product} />)))
     }else {
