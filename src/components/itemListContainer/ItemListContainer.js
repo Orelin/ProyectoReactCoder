@@ -5,7 +5,7 @@ import "./ItemListContainer.css";
 import ItemList from "../itemList/ItemList";
 //Core
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
 
 

@@ -37,14 +37,19 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <Link to={`/categoria/${"id"}`}>
+        <Link to={`/categoria/electronics`}>
         <MenuItem onClick={handleClose}>Electronics</MenuItem>
         </Link>
+        <Link to={`/categoria/jewelery`}>
         <MenuItem onClick={handleClose}>Jewelery</MenuItem>
+        </Link>
+        <Link to={`/categoria/men's clothing`}>
         <MenuItem onClick={handleClose}>Men's clothing</MenuItem>
+        </Link>
+        <Link to={`/categoria/women's clothing`}>
         <MenuItem onClick={handleClose}>Women's clothing</MenuItem>
+        </Link>
       </Menu>
     </div>
   );
 }//! Agregar Links a Categorias
-
