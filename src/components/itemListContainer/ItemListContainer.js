@@ -12,7 +12,6 @@ const ItemListContainer = () => {
 
     return (
         <div className="ItemListContainer">
-        <p>Item Container</p>
         <ItemList/>
         </div>
     )

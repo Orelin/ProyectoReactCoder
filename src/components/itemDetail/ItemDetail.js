@@ -1,9 +1,8 @@
 //Modulos
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 //Estilos
 import "./ItemDetail.css";
-import Button from '@mui/material/Button'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -16,10 +15,13 @@ import ItemCount from "../itemCount/ItemCount";
 
 const ItemDetail = (props) => {
 
-    const {category, description, price, title, id, image} = props.data;
+    const {category, description, price, title, image} = props.data;
+    const [ cantidad, setcantidad] = useState(0)
 
-
-
+    const getTotal = (total) => {
+        setcantidad(total)
+    }
+    
 
     return (
         <div className="ItemDetail">
@@ -33,16 +35,15 @@ const ItemDetail = (props) => {
                 <Typography gutterBottom variant="h5" component="div">{title}</Typography>
                 <Typography gutterBottom variant="h6" component="div">{category}</Typography>
                 <Typography variant="body2" color="text.secondary">{description}</Typography>
+                <Typography variant="h6" color="text.secondary">1x ${price}</Typography>
+                <Typography variant="h6" color="text.secondary">5x ${price*5}</Typography>
             </CardContent>
 
             <CardActions>
-                <Link to={`/producto/${id}`}>
-                <Button variant="text">Ver detalles</Button>
-                <p>${price}</p>
-                </Link>
+                <Typography variant="h6" color="text.secondary">Total Actual ${price*cantidad}</Typography>
             </CardActions>
             
-            <ItemCount stock= {10} />
+            <ItemCount stock= {5} price={price} getTotal={getTotal} />
 
             </Card>
         </div>

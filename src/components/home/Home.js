@@ -1,6 +1,7 @@
 //Modulos
 //Estilos
 import "./Home.css";
+import ItemListContainer from "../itemListContainer/ItemListContainer"
 
 //Componentes
 //Core
@@ -10,7 +11,7 @@ const Home = () => {
 
     return (
         <div className="Home">
-            <p>Home</p>
+            <ItemListContainer/>
         </div>
     )
 }

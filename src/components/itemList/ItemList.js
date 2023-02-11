@@ -20,15 +20,15 @@ const ItemList = () => {
         .then(res=>res.json())
         .then(json=> setRenderizar( json.map( product => <Item key={product.id} id= {"idprod" + product.id} data={product} />)))
     }else {
-        fetch('https://fakestoreapi.com/products/?limit=10')
+        fetch('https://fakestoreapi.com/products/?limit=18')
         .then(res=>res.json())
         .then(json=> setRenderizar( json.map( product => <Item key={product.id} id= {"idprod" + product.id} data={product} />)))
     }},[categoriaId])
     
     return (
         <div className="ItemList">
-            <p>Item List</p>
-            {renderizar}
+            <h2>{categoriaId}</h2>
+            <div className="ItemListArticles">{renderizar}</div>
         </div>
     )
 }
