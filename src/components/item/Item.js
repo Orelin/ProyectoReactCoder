@@ -28,7 +28,7 @@ const Item = (props) => {
                         {title}
                     </Typography>
                     <Typography gutterBottom variant="p" component="div">
-                        ${price}
+                        $ {price}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div">
                         {category}

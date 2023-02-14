@@ -3,6 +3,7 @@ import { useState } from "react";
 
 //Estilos
 import "./ItemDetail.css";
+import Button from '@mui/material/Button'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,18 +11,35 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 //Componentes
 import ItemCount from "../itemCount/ItemCount";
+import {  useCartContext } from "../../context/cartContext.js";
 
 //Core
 
 const ItemDetail = (props) => {
 
-    const {category, description, price, title, image} = props.data;
-    const [ cantidad, setcantidad] = useState(0)
+    const { id, category, description, price, title, image} = props.data;
+    const [ cantidad, setcantidad] = useState(0);
+    const { removeItemStore, addItemStore } = useCartContext();
+
 
     const getTotal = (total) => {
         setcantidad(total)
     }
-    
+
+    const onAdd = () => {
+        const product = {
+            id,
+            category,
+            price,
+            title,
+            cantidad
+        }
+        addItemStore(product)
+    }
+    const removeItem = () => {
+        removeItemStore(id)
+    }
+
 
     return (
         <div className="ItemDetail">
@@ -38,13 +56,13 @@ const ItemDetail = (props) => {
                 <Typography variant="h6" color="text.secondary">1x ${price}</Typography>
                 <Typography variant="h6" color="text.secondary">5x ${price*5}</Typography>
             </CardContent>
+            <ItemCount stock= {5} getTotal={getTotal} />
 
             <CardActions>
-                <Typography variant="h6" color="text.secondary">Total Actual ${price*cantidad}</Typography>
+                <Typography variant="h6" color="text.secondary">Total Actual $ {price*cantidad}</Typography>
+                <Button className= "ButtonBuy" variant="contained" size="large" onClick={onAdd} color="success"> Buy Now </Button>  
+                <Button className= "ButtonBuy" variant="contained" size="large" onClick={removeItem} color="error"> Remove </Button>  
             </CardActions>
-            
-            <ItemCount stock= {5} price={price} getTotal={getTotal} />
-
             </Card>
         </div>
     )

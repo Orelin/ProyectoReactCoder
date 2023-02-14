@@ -1,30 +1,38 @@
 //Modulos
 import { useState } from "react";
-import Button from '@mui/material/Button'
 //Estilos
 import "./ItemCount.css";
 //Componentes
+import Button from '@mui/material/Button'
+
 //Core
 
 const ItemCount = (props) => {
 
     const [cart, setCart] = useState(0)
     const { stock, getTotal } = props
+    
 
     //*Agregar o quitar productos
-    const  onAdd = () => {
-        stock <= cart ? console.log("No hay stock") : setCart(cart + 1)
-        getTotal(cart + 1)
+    const onAdd = () => {
+        if (stock <= cart) {
+            setCart(cart)
+            getTotal(cart)
+
+        }else {
+            setCart(cart + 1)
+            getTotal(cart + 1)
+        }
     }
     
     const onRemove = () => {
-        cart === 0 ? console.log("Cart vacio") : setCart(cart - 1)
-        getTotal(cart - 1)
-
-    }
-
-    const addCart = () => {
-        console.log(`Agregando al carrito ${cart} valor ${cart}`)
+        if(cart < 1){
+            console.log("Cart vacio")
+            getTotal(cart)
+        }else{
+            setCart(cart - 1) 
+            getTotal(cart - 1)
+        }      
     }
     
     return (
@@ -33,10 +41,7 @@ const ItemCount = (props) => {
                 <Button variant="contained" size="small" onClick={onRemove} color="error"> - </Button> 
                 <p> x {cart} </p>
                 <Button variant="contained" size="small" onClick={onAdd} color="success"> + </Button>
-            </div>
-            <div>
-                <Button className= "ButtonBuy" variant="contained" size="large" onClick={addCart} color="success"> Buy Now </Button>  
-            </div>     
+            </div>  
         </div>
     )
 }

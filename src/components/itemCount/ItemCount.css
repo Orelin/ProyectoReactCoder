@@ -1,11 +1,8 @@
-.ItemCount {
-    border: 1px solid black;
-}
-
 .ItemCount div {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    min-width: 10em;
 }
 
 .ItemCount .ButtonBuy {
