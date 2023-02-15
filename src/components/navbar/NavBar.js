@@ -50,7 +50,7 @@ const NavBar = () => {
                         </li>
                     </ul>
                 </div>
-                <CardWidget cantidad="7"/>
+                <CardWidget/>
             </nav>
         </header>
     )

@@ -1,18 +1,19 @@
  //Modulos
+import { useCartContext } from "../../context/cartContext";
 //Estilos
 import "./CardWidget.css";
 //Componentes
 //Core
 
-const CardWidget = (props) => {
+const CardWidget = () => {
 
     //!Usar CartContext para mostrar cantidad carrito
-
+    const { itemsNumber } = useCartContext();
 
     return (
         <div className= "cardCart">
             <span className="material-symbols-rounded">shopping_cart</span>
-            {props.cantidad === "0" ? "" : <p>{props.cantidad}</p>}
+            {itemsNumber === "0" ? "" : <p>{itemsNumber}</p>}
         </div>
     )
 }

@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Card } from "@mui/material";
 import Button from '@mui/material/Button'
-import {  useCartContext, items } from "../../context/cartContext.js";
+import {  useCartContext } from "../../context/cartContext.js";
 
 
 const CartItem = (data) => {

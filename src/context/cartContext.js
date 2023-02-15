@@ -10,6 +10,7 @@ const CartProvider = ({children}) => {
 
     //Estado CartProvider
     const [items, setItems] = useState([])
+    const [itemsNumber, setItemsNumber] = useState(0)
 
     //Funciones CartProvider
     const mostrarMensaje = () =>{
@@ -28,6 +29,7 @@ const CartProvider = ({children}) => {
             storeProducts.push(data)
         }
         setItems([...storeProducts])
+        itemCount()
 }
 
     const removeItemStore = (id) => {
@@ -43,12 +45,17 @@ const CartProvider = ({children}) => {
         return items.find(item => item.id === id) ? true : false;
     }
 
-
+    const itemCount = () => { //!Cantidad de itemsCart en Number
+        let itemCant = 0
+        items.forEach( item => itemCant += item.cantidad)
+        return setItemsNumber(itemCant)
+    }
 
     return (
         <CartContext.Provider 
             value={{
                 items, 
+                itemsNumber,
                 mostrarMensaje,
                 addItemStore,
                 removeItemStore
