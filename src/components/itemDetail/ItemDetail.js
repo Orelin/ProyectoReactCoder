@@ -19,7 +19,7 @@ const ItemDetail = (props) => {
 
     const { id, category, description, price, title, image} = props.data;
     const [ cantidad, setcantidad] = useState(0);
-    const { removeItemStore, addItemStore } = useCartContext();
+    const { addItemStore } = useCartContext();
 
 
     const getTotal = (total) => {
@@ -36,9 +36,7 @@ const ItemDetail = (props) => {
         }
         addItemStore(product)
     }
-    const removeItem = () => {
-        removeItemStore(id)
-    }
+
 
 
     return (
@@ -60,8 +58,7 @@ const ItemDetail = (props) => {
 
             <CardActions>
                 <Typography variant="h6" color="text.secondary">Total Actual $ {price*cantidad}</Typography>
-                <Button className= "ButtonBuy" variant="contained" size="large" onClick={onAdd} color="success"> Buy Now </Button>  
-                <Button className= "ButtonBuy" variant="contained" size="large" onClick={removeItem} color="error"> Remove </Button>  
+                <Button className= "ButtonBuy" variant="contained" size="large" onClick={onAdd} color="success"> Buy Now </Button>   
             </CardActions>
             </Card>
         </div>

@@ -9,8 +9,9 @@ import Home from './components/home/Home';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
 import AboutUs from './components/aboutUs/AboutUs';
 import Footer from './components/footer/Footer';
-import Cart from './components/cart/Cart';
+//import CartListContainer from './components/cartListContainer/CartListContainer';
 import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
+import CartListContainer from './components/cartListContainer/CartListContainer';
 //Core
 
 function App() {
@@ -25,9 +26,9 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/productos' element={<ItemListContainer/>}/>
-          <Route exact path='/categoria/:categoriaId' element={<ItemListContainer/>}/>
           <Route exact path='/producto/:productoId' element={<ItemDetailContainer/>}/>
-          <Route exact path='/cart/' element={<Cart/>}/>
+          <Route exact path='/categoria/:categoriaId' element={<ItemListContainer/>}/>
+          <Route exact path='/cart/' element={<CartListContainer/>}/>
           <Route exact path='/contacto' element={<AboutUs/>}/>
         </Routes>
 

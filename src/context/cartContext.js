@@ -17,27 +17,30 @@ const CartProvider = ({children}) => {
     }
 
     const addItemStore = (data) => {
-        const storeProducts = items
-        storeProducts.push(data)
-        setItems(storeProducts)
-        console.log(storeProducts);
-    }
+        let storeProducts = items
+        const existingProductIndex = storeProducts.findIndex(item => item.id === data.id)
+
+        if (existingProductIndex !== -1) {
+            const existingProduct = storeProducts[existingProductIndex]
+            const productUpdated = { ...existingProduct, cantidad: data.cantidad + existingProduct.cantidad }
+            storeProducts[existingProductIndex] = productUpdated
+        } else {
+            storeProducts.push(data)
+        }
+        setItems([...storeProducts])
+}
 
     const removeItemStore = (id) => {
         const filterId = items.filter(item => item.id !== id)
         setItems(filterId)
-        console.log(id);
-
-        console.log(filterId);
     }
 
     const clearItemStore = () => {
         setItems([]);
     }
 
-    const validItems = () => {
-
-
+    const validItems = (id) => {
+        return items.find(item => item.id === id) ? true : false;
     }
 
 

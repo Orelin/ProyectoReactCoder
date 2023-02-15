@@ -6,11 +6,13 @@ import "./CardWidget.css";
 
 const CardWidget = (props) => {
 
+    //!Usar CartContext para mostrar cantidad carrito
+
 
     return (
         <div className= "cardCart">
             <span className="material-symbols-rounded">shopping_cart</span>
-            <p>{props.cantidad}</p>
+            {props.cantidad === "0" ? "" : <p>{props.cantidad}</p>}
         </div>
     )
 }
