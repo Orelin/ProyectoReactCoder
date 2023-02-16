@@ -14,13 +14,15 @@ const CartListContainer = () => {
     const [renderizar, setRenderizar] = useState([])
     useEffect(() => {
         setRenderizar( items.map( product => <CartItem key={product.id} id= {"idprod" + product.id} data={product} />))
-        console.log(items)
     },[items])
 
 
     return (
         <div className="CartListContainer">
             {renderizar}
+            <div className="InfoBuyCart">
+                InfoBuyCart
+            </div>
         </div>
     )
 }

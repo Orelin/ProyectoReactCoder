@@ -22,19 +22,22 @@ const ItemDetail = (props) => {
     const { addItemStore } = useCartContext();
 
 
-    const getTotal = (total) => {
-        setcantidad(total)
+    const getTotal = (total) => { //ItemCount cart  -> cantidad
+    setcantidad(total)
     }
 
     const onAdd = () => {
-        const product = {
-            id,
-            category,
-            price,
-            title,
-            cantidad
+        if (cantidad > 0) {
+            const product = {
+                id,
+                category,
+                price,
+                title,
+                cantidad,
+                image
+            }
+            addItemStore(product)
         }
-        addItemStore(product)
     }
 
 
@@ -56,7 +59,7 @@ const ItemDetail = (props) => {
             </CardContent>
             <ItemCount stock= {5} getTotal={getTotal} />
 
-            <CardActions>
+            <CardActions className="CardActions">
                 <Typography variant="h6" color="text.secondary">Total Actual $ {price*cantidad}</Typography>
                 <Button className= "ButtonBuy" variant="contained" size="large" onClick={onAdd} color="success"> Buy Now </Button>   
             </CardActions>

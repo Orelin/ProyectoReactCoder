@@ -12,28 +12,29 @@ const CartItem = (data) => {
 
     //! Mostrar items del carrito y gasto total
     const { removeItemStore } = useCartContext();
-    const { title, image } = data;
+    const { title, image, price, cantidad, id } = data.data;
 
     const removeItem = () => {
-        removeItemStore()
+        removeItemStore(id)
     }
 
     return (
         <div className="CartItem">
-                <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345 }} className="CartItemCard">
                 <CardMedia
-                sx={{ height: 500 }}
+                className= "CartItemImg"
+                sx={{ backgroundSize: "contain" }}
                 image={image}
-                title={title}/>
+                title={title}
+                />
 
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">{title}</Typography>
-                <Typography variant="h6" color="text.secondary">1x ${"price"}</Typography>
-            </CardContent>
+                <CardContent className= "CartItemInfo">
+                    <Typography gutterBottom variant="h5" component="div">{title}</Typography>
+                    <Typography variant="h6" color="text.secondary"> $ {cantidad*price} </Typography>
+                </CardContent>
 
-            <Button className= "ButtonBuy" variant="contained" onClick={removeItem} size="large" color="error"> Remove </Button> 
+            <Button className= "ButtonDelete" variant="text" onClick={removeItem} size="medium" color="error"> Remove product </Button> 
             </Card>
-            
         </div>
     )
 }

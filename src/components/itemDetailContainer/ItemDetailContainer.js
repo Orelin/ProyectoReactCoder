@@ -26,9 +26,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className="ItemDetailContainer">
-            <div>
                 {renderizar}
-            </div>
         </div>
     )
 }

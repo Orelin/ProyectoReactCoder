@@ -1,0 +1,9 @@
+.CartListContainer {
+    display: grid;
+    grid-template-areas: "a b"; /*! Usar "a" para productos y "b" para mostrar info de totales y compra*/
+    grid-template-columns: 1fr 1fr;
+}
+
+.InfoBuyCart {
+    grid-area: b;
+}

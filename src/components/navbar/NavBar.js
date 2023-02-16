@@ -43,14 +43,11 @@ const NavBar = () => {
                             <Button variant="text" color="primary">Contacto</Button>
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/cart">
-                            <Button variant="text" color="primary">Cart!</Button>
-                            </Link>
-                        </li>
                     </ul>
                 </div>
-                <CardWidget/>
+                <Link to="/cart">
+                    <CardWidget/>
+                </Link>
             </nav>
         </header>
     )

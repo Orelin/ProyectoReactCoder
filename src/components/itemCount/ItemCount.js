@@ -27,7 +27,7 @@ const ItemCount = (props) => {
     
     const onRemove = () => {
         if(cart < 1){
-            console.log("Cart vacio")
+            alert("Cart vacio")
             getTotal(cart)
         }else{
             setCart(cart - 1) 
