@@ -30,6 +30,7 @@ const CartItem = (data) => {
 
                 <CardContent className= "CartItemInfo">
                     <Typography gutterBottom variant="h5" component="div">{title}</Typography>
+                    <Typography variant="h6" color="text.secondary"> {cantidad} x $ {price} </Typography>
                     <Typography variant="h6" color="text.secondary"> $ {cantidad*price} </Typography>
                 </CardContent>
 

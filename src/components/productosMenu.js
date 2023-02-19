@@ -37,17 +37,14 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <Link to={`/categoria/electronics`}>
-        <MenuItem onClick={handleClose}>Electronics</MenuItem>
+        <Link to={`/categoria/Bebidascalientes`}>
+        <MenuItem onClick={handleClose}>Bebidas calientes</MenuItem>
         </Link>
-        <Link to={`/categoria/jewelery`}>
-        <MenuItem onClick={handleClose}>Jewelery</MenuItem>
+        <Link to={`/categoria/Bebidasfrias`}>
+        <MenuItem onClick={handleClose}>Bebidas frías</MenuItem>
         </Link>
-        <Link to={`/categoria/men's clothing`}>
-        <MenuItem onClick={handleClose}>Men's clothing</MenuItem>
-        </Link>
-        <Link to={`/categoria/women's clothing`}>
-        <MenuItem onClick={handleClose}>Women's clothing</MenuItem>
+        <Link to={`/categoria/Snacks`}>
+        <MenuItem onClick={handleClose}>Snacks</MenuItem>
         </Link>
       </Menu>
     </div>

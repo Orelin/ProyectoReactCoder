@@ -8,23 +8,32 @@ import "./ItemList.css";
 import Item from "../item/Item";
 //Core
 
-const ItemList = () => {
+//firestore db
+import { db } from "../services/firebaseConfig";
+import { collection, getDocs} from "firebase/firestore"
 
+const ItemList = () => {
     const [renderizar, setRenderizar] = useState([])
     const {categoriaId} = useParams();
+    console.log(categoriaId);
+
+
     
     useEffect(() => {
+        const collectionRef = collection(db, "productsList")
+        if(categoriaId!=null){
+            getDocs(collectionRef)
+                .then((response) => {
+                    setRenderizar( response.docs.map( product => <Item key={product.data().id} id= {"idprod" + product.data().id} data={product.data()} />))
+                })
+        }else{
+            getDocs(collectionRef)
+                .then((response) => {
+                    setRenderizar( response.docs.map( product => <Item key={product.data().id} id= {"idprod" + product.data().id} data={product.data()} />))
+            })
+        }
+    },[categoriaId])
         
-        if(categoriaId!=null) {
-        fetch(`https://fakestoreapi.com/products/category/${categoriaId}`)
-        .then(res=>res.json())
-        .then(json=> setRenderizar( json.map( product => <Item key={product.id} id= {"idprod" + product.id} data={product} />)))
-    }else {
-        fetch('https://fakestoreapi.com/products/?limit=18')
-        .then(res=>res.json())
-        .then(json=> setRenderizar( json.map( product => <Item key={product.id} id= {"idprod" + product.id} data={product} />)))
-    }},[categoriaId])
-    
     return (
         <div className="ItemList">
             <h2>{categoriaId}</h2>

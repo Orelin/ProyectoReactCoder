@@ -16,12 +16,13 @@ import Typography from '@mui/material/Typography';
 //Core
 
 const Item = (props) => {
-    const { category, description, price, title, id, image } = props.data;
+    const { category, description, price, title, id, img } = props.data;
+
 
     return (
         <div className="Item">
             <Card sx={{ maxWidth: 380 }}>
-                <CardMedia sx={{ height: 350 }} image={image} title={title} />
+                <CardMedia sx={{ height: 350 }} image={img} title={title} />
 
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
