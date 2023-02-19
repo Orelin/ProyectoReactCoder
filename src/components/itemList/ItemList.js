@@ -15,16 +15,14 @@ import { collection, getDocs} from "firebase/firestore"
 const ItemList = () => {
     const [renderizar, setRenderizar] = useState([])
     const {categoriaId} = useParams();
-    console.log(categoriaId);
 
-
-    
     useEffect(() => {
         const collectionRef = collection(db, "productsList")
         if(categoriaId!=null){
             getDocs(collectionRef)
-                .then((response) => {
-                    setRenderizar( response.docs.map( product => <Item key={product.data().id} id= {"idprod" + product.data().id} data={product.data()} />))
+            .then((response) => {
+                const productsCategory = response.docs.filter(category => category.data().category === categoriaId )
+                setRenderizar( productsCategory.map( product => <Item key={product.data().id} id= {"idprod" + product.data().id} data={product.data()} />))
                 })
         }else{
             getDocs(collectionRef)
