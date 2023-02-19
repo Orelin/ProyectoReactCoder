@@ -17,7 +17,7 @@ import {  useCartContext } from "../../context/cartContext.js";
 
 const ItemDetail = (props) => {
 
-    const { id, category, description, price, title, image} = props.data;
+    const { id, category, description, price, title, img} = props.data;
     const [ cantidad, setcantidad] = useState(0);
     const { addItemStore } = useCartContext();
 
@@ -34,7 +34,7 @@ const ItemDetail = (props) => {
                 price,
                 title,
                 cantidad,
-                image
+                img
             }
             addItemStore(product)
         }
@@ -47,7 +47,7 @@ const ItemDetail = (props) => {
             <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                 sx={{ height: 500 }}
-                image={image}
+                image={img}
                 title={title}/>
 
             <CardContent>

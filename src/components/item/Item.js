@@ -31,9 +31,6 @@ const Item = (props) => {
                     <Typography gutterBottom variant="p" component="div">
                         $ {price}
                     </Typography>
-                    <Typography gutterBottom variant="h6" component="div">
-                        {category}
-                    </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {description}
                     </Typography>

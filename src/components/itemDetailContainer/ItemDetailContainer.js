@@ -1,6 +1,8 @@
 //Modulos
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { db } from "../services/firebaseConfig";
+import { collection, getDocs} from "firebase/firestore"
 //Estilos
 import "./ItemDetailContainer.css";
 
@@ -14,13 +16,21 @@ const ItemDetailContainer = () => {
     const { productoId } = useParams()
 
 
-    useEffect(() => {
+    /*useEffect(() => {
+        
         fetch(`https://fakestoreapi.com/products/${productoId}`)
         .then(res=>res.json())
         .then(product=> setRenderizar( <ItemDetail key={product.id} id= {"idprod" + product.id} data={product}/> ))
+    },[productoId])*/
+
+    useEffect(() => {
+        const collectionRef = collection(db, "productsList")
+        getDocs(collectionRef)
+        .then((response) => {
+            const productById = response.docs.filter(category => category.data().id === 2)
+            setRenderizar( productById.map( product => <ItemDetail key={product.data().id} id= {"idprod" + product.data().id} data={product.data()} />))
+            })
     },[productoId])
-
-
 
     
 

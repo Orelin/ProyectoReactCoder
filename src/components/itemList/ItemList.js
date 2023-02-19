@@ -15,9 +15,9 @@ import { collection, getDocs} from "firebase/firestore"
 const ItemList = () => {
     const [renderizar, setRenderizar] = useState([])
     const {categoriaId} = useParams();
+    const collectionRef = collection(db, "productsList")
 
     useEffect(() => {
-        const collectionRef = collection(db, "productsList")
         if(categoriaId!=null){
             getDocs(collectionRef)
             .then((response) => {
@@ -34,7 +34,6 @@ const ItemList = () => {
         
     return (
         <div className="ItemList">
-            <h2>{categoriaId}</h2>
             <div className="ItemListArticles">{renderizar}</div>
         </div>
     )
