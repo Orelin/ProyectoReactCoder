@@ -14,12 +14,12 @@ const ItemDetailContainer = () => {
 
     const [renderizar, setRenderizar] = useState([])
     const { productoId } = useParams()
-
+    
     useEffect(() => {
         const collectionRef = collection(db, "productsList")
         getDocs(collectionRef)
         .then((response) => {
-            const productById = response.docs.filter(category => category.data().id === 2)
+            const productById = response.docs.filter(category => category.data().id === parseInt(productoId))
             setRenderizar( productById.map( product => <ItemDetail key={product.data().id} id= {"idprod" + product.data().id} data={product.data()} />))
             })
     },[productoId])
