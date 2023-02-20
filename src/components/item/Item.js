@@ -16,7 +16,7 @@ import Typography from '@mui/material/Typography';
 //Core
 
 const Item = (props) => {
-    const { category, description, price, title, id, img } = props.data;
+    const { description, price, title, id, img } = props.data;
 
 
     return (

@@ -15,9 +15,9 @@ import { collection, getDocs} from "firebase/firestore"
 const ItemList = () => {
     const [renderizar, setRenderizar] = useState([])
     const {categoriaId} = useParams();
-    const collectionRef = collection(db, "productsList")
-
+    
     useEffect(() => {
+        const collectionRef = collection(db, "productsList")
         if(categoriaId!=null){
             getDocs(collectionRef)
             .then((response) => {

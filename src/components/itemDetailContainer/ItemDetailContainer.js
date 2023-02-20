@@ -15,14 +15,6 @@ const ItemDetailContainer = () => {
     const [renderizar, setRenderizar] = useState([])
     const { productoId } = useParams()
 
-
-    /*useEffect(() => {
-        
-        fetch(`https://fakestoreapi.com/products/${productoId}`)
-        .then(res=>res.json())
-        .then(product=> setRenderizar( <ItemDetail key={product.id} id= {"idprod" + product.id} data={product}/> ))
-    },[productoId])*/
-
     useEffect(() => {
         const collectionRef = collection(db, "productsList")
         getDocs(collectionRef)
@@ -32,7 +24,6 @@ const ItemDetailContainer = () => {
             })
     },[productoId])
 
-    
 
     return (
         <div className="ItemDetailContainer">

@@ -1,3 +1,8 @@
+.ItemDetail {
+    min-width: 25em
+}
+
+
 .CardActions {
     display: flex;
     justify-content: space-around;

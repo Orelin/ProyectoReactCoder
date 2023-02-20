@@ -52,7 +52,6 @@ const ItemDetail = (props) => {
 
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">{title}</Typography>
-                <Typography gutterBottom variant="h6" component="div">{category}</Typography>
                 <Typography variant="body2" color="text.secondary">{description}</Typography>
                 <Typography variant="h6" color="text.secondary">1x ${price}</Typography>
                 <Typography variant="h6" color="text.secondary">5x ${price*5}</Typography>
